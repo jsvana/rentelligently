@@ -31,6 +31,10 @@
 	background-color: #e67e22;
 }
 
+.hide {
+	display: none;
+}
+
 .quicksand {
 	font-family: 'Quicksand', sans-serif;
 }
@@ -46,9 +50,24 @@
 	left: 10px;
 	right: 0;
 	text-align: center;
+	padding-top: calc(50%);
 	padding-top: calc(50% - 30px);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	font-size: 1.2em;
+	display: block;
+}
+
+.vcenter {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.thumbnail span {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	font-size: 1.6em;
 }
