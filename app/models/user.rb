@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :properties
+  has_many :roommates
 
   def current_property
     start_field = RentalTerm.arel_table[:start_date]

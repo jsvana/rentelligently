@@ -5,6 +5,10 @@ class Property < ActiveRecord::Base
   has_many :users, through: :rental_terms
   has_many :issues
 
+  def current_term
+    self.rental_terms.order(end_date: :desc).first
+  end
+
   def average_property_rating
     self.rental_terms.pluck(:property_rating).reduce(:+) / self.rental_terms.count
   end

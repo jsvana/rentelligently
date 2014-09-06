@@ -3,6 +3,8 @@
     %a{ href: "#home", data: { toggle: "tab" }} Summary
   %li
     %a{ href: "#issues", data: { toggle: "tab" }} Issues
+  %li
+    %a{ href: "#roommates", data: { toggle: "tab" }} Roommates
 
 .tab-content
   #home.tab-pane.active
@@ -59,38 +61,12 @@
           .thumb-dummy
           .thumbnail.nephritis.clouds.quicksand= issue.description
           .thumbnail.nephritis.clouds.quicksand.hide= issue.user.email
-    -#.row
-      -#.col-md-6
-        -#%h2 Outstanding Issues
-        -#- if @property.outstanding_issues.any?
-          -#%table.table.table-bordered.table-striped
-            -#%tr
-              -#%th Issue
-              -#%th Reported By
-            -#- @property.outstanding_issues.each do |issue|
-              -#%tr
-                -#%td= issue.description
-                -#%td= issue.user.email
-        -#- else
-          -#%p No outstanding issues.
-
-      -#.col-md-6
-        -#%h2 Fixed Issues
-        -#- if @property.fixed_issues.any?
-          -#%table.table.table-bordered.table-striped
-            -#%tr
-              -#%th Issue
-              -#%th Reported By
-            -#- @property.fixed_issues.each do |issue|
-              -#%tr
-                -#%td
-                  -#%strike= issue.description
-                -#%td
-                  -#%strike= issue.user.username
-        -#- else
-          -#- if @property.outstanding_issues.any?
-            -#%p No fixed issues.
-          -#- else
-            -#%p No issues.
 
     = link_to 'Report an Issue', new_property_issue_path(@property)
+
+  #roommates.tab-pane
+    - if @property.current_term.roommates.any?
+      - @property.current_term.roommates.each do |roommate|
+        = roommate.roommate.email
+    - else
+      %p No roommates listed.

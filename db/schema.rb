@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906141114) do
+ActiveRecord::Schema.define(version: 20140906145850) do
 
   create_table "issues", force: true do |t|
     t.integer  "property_id"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 20140906141114) do
     t.integer  "rentor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "roommates", force: true do |t|
+    t.integer "user_id"
+    t.integer "roommate_id"
+    t.integer "rental_term_id"
   end
 
   create_table "users", force: true do |t|

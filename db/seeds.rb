@@ -1,9 +1,16 @@
 User.delete_all
 Property.delete_all
 RentalTerm.delete_all
+Roommate.delete_all
+Issue.delete_all
 
 jsvana = User.create!(
 	email: 'jsvana@mtu.edu',
+	password: 'linked2736'
+)
+
+rex = User.create!(
+	email: 'rdbaumei@mtu.edu',
 	password: 'linked2736'
 )
 
@@ -21,7 +28,7 @@ hubbell = Property.create!(
 	landlord_phone: '555.555.5555'
 )
 
-RentalTerm.create!(
+first_rent = RentalTerm.create!(
 	user: jsvana,
 	property: hubbell,
 	start_date: Date.current - 1.year,
@@ -41,20 +48,29 @@ RentalTerm.create!(
 	landlord_rating: 3
 )
 
+Roommate.create(
+	user: jsvana,
+	roommate: rex,
+	rental_term: first_rent
+)
+
 Issue.create!(
 	property: hubbell,
 	description: 'Stove is broken.',
-	fixed: true
+	fixed: true,
+	user: jsvana
 )
 
 Issue.create!(
 	property: hubbell,
 	description: 'Windows are cracked.',
-	fixed: false
+	fixed: false,
+	user: rex
 )
 
 Issue.create!(
 	property: hubbell,
 	description: 'Skunk lives under the deck.',
-	fixed: false
+	fixed: false,
+	user: rex
 )
