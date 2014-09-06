@@ -1,9 +1,31 @@
-%h1 Create Property
-
-= simple_form_for @property do |f|
-  = f.input :address
-  = f.input :description
-  = f.input :landlord_name
-  = f.input :landlord_phone
-  = f.input :landlord_email
-  = f.submit
+.well
+  %h1.title Add New Property
+  %hr
+  = simple_form_for @property do |f|
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-envelope
+        %input#landlord_email.form-control{type: "text", name: "property[landlord_email]", placeholder: "Email", required: true}
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-building
+        %input#address.form-control{type: "text", name: "property[address]", placeholder: "Address", required: true}
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-pencil-square
+        %input#description.form-control{type: "text", name: "property[description]", placeholder: "Description"}
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-male
+        %input#landlord_name.form-control{type: "text", name: "property[landlord_name]", placeholder: "Landlord Name"}
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-phone
+        %input#phone_number.form-control{type: "text", name:"property[landlord_phone]", placeholder: "Phone Number"}
+    .form-group
+      %input.btn.btn-primary.property-btn{ type: 'submit' }
