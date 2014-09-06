@@ -45,12 +45,43 @@
 
   #issues.tab-pane
     %h2 Issues
-    - if @property.issues
-      - @property.issues.each do |issue|
-        - if issue.fixed
-          %strike= issue.description
-        - else
-          %p= issue.description
-    - else
-      %p No issues have been reported.
+    .row
+      - @property.outstanding_issues.each do |issue|
+        .col-md-3.col-sm-4.col-xs-6
+          .thumb-dummy
+          .thumbnail.nephritis.clouds.quicksand= issue.description
+    -#.row
+      -#.col-md-6
+        -#%h2 Outstanding Issues
+        -#- if @property.outstanding_issues.any?
+          -#%table.table.table-bordered.table-striped
+            -#%tr
+              -#%th Issue
+              -#%th Reported By
+            -#- @property.outstanding_issues.each do |issue|
+              -#%tr
+                -#%td= issue.description
+                -#%td= issue.user.email
+        -#- else
+          -#%p No outstanding issues.
+
+      -#.col-md-6
+        -#%h2 Fixed Issues
+        -#- if @property.fixed_issues.any?
+          -#%table.table.table-bordered.table-striped
+            -#%tr
+              -#%th Issue
+              -#%th Reported By
+            -#- @property.fixed_issues.each do |issue|
+              -#%tr
+                -#%td
+                  -#%strike= issue.description
+                -#%td
+                  -#%strike= issue.user.username
+        -#- else
+          -#- if @property.outstanding_issues.any?
+            -#%p No fixed issues.
+          -#- else
+            -#%p No issues.
+
     = link_to 'Report an Issue', new_property_issue_path(@property)

@@ -1,5 +1,6 @@
 .property-buttons {
 	margin: 10px;
+	text-align: center;
 }
 
 .yellow {
@@ -8,4 +9,30 @@
 
 .clouds {
 	color: #ecf0f1 !important;
+}
+
+.nephritis {
+	background-color: #27ae60;
+}
+
+.quicksand {
+	font-family: 'Quicksand', sans-serif;
+}
+
+.thumb-dummy {
+	margin-top: 100%;
+}
+
+.thumbnail {
+	position: absolute;
+	top: 15px;
+	bottom: 0;
+	left: 15px;
+	right: 0;
+	text-align: center;
+	padding-top: calc(50% - 30px);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 1.2em;
 }

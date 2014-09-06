@@ -16,4 +16,12 @@ class Property < ActiveRecord::Base
   def comments
     self.rental_terms.pluck(:comments)
   end
+
+  def fixed_issues
+    self.issues.where(fixed: true)
+  end
+
+  def outstanding_issues
+    self.issues.where(fixed: false)
+  end
 end

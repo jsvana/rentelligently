@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906073050) do
+ActiveRecord::Schema.define(version: 20140906141114) do
 
   create_table "issues", force: true do |t|
     t.integer  "property_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140906073050) do
     t.boolean  "fixed",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "properties", force: true do |t|

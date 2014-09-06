@@ -13,6 +13,7 @@ class IssuesController < ApplicationController
   def create
     @issue = Issue.create(issue_params)
     @issue.property_id = params[:property_id]
+    @issue.user_id = current_user.id
 
     if @issue.save
       redirect_to root_path, notice: 'Issue added successfully.'
