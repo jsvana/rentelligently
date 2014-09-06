@@ -15,6 +15,22 @@
 	background-color: #27ae60;
 }
 
+.pomegranate {
+	background-color: #c0392b;
+}
+
+.orange {
+	background-color: #f39c12;
+}
+
+.pumpkin {
+	background-color: #d35400;
+}
+
+.carrot {
+	background-color: #e67e22;
+}
+
 .quicksand {
 	font-family: 'Quicksand', sans-serif;
 }
@@ -27,7 +43,7 @@
 	position: absolute;
 	top: 15px;
 	bottom: 0;
-	left: 15px;
+	left: 10px;
 	right: 0;
 	text-align: center;
 	padding-top: calc(50% - 30px);
