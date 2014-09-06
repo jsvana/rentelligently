@@ -1,0 +1,10 @@
+%h1= @property.address
+
+- if @property.rental_terms.empty?
+  %p Nobody has rented this, yet.
+- else
+  - @property.rental_terms.each do |term|
+    %h3= "Rented by #{term.user.email} from #{term.start_date} to #{term.end_date}"
+    - if term.comments
+      %h4 Comments
+      %p= term.comments

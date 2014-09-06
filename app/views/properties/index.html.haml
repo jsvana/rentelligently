@@ -4,5 +4,5 @@
   %p No properties, yet.
 - else
   - @properties.each do |property|
-    %h3= property.address
+    %h3= link_to property.address, property
     %p= property.description

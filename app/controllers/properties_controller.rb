@@ -10,6 +10,9 @@ class PropertiesController < ApplicationController
 	end
 
 	def show
+		@property = Property.find(params[:id])
+
+		respond_with(@property)
 	end
 
 	def new
@@ -19,7 +22,7 @@ class PropertiesController < ApplicationController
 	end
 
 	def create
-		@property = Property.new()
+		@property = Property.new(params[:property])
 
 		if @property.save
 			redirect_to dashboards_path, notice: 'Property added successfully.'
