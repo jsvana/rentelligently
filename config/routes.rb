@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :landings, only: [:index]
 
   resources :properties do
-    resources :issues
-    resources :utilities
+    resources :issues, except: [:index]
+    resources :utilities do
+			post :pay
+		end
   end
 
   resources :users, only: [:show, :edit, :update]

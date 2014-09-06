@@ -1,7 +1,20 @@
 %h1 Add Utility
 
 = simple_form_for [@property, @utility] do |f|
-  = f.input :provider
-  = f.input :due_by
-  = f.input :cost
-  = f.submit
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-building
+      %input.form-control{type: "text", name: "utility[provider]", placeholder: "Provider", required: true}
+  .form-group
+    #datepicker.input-daterange.input-group
+      %span.input-group-addon
+        %i.fa.fa-calendar
+      %input.input-sm.form-control{ type: "text", name: 'utility[due_by]', placeholder: 'Due Date', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-dollar
+      %input.form-control{type: "text", name:"utility[cost]", placeholder: "Cost"}
+  .form-group{ style: 'text-align: center; margin-top: 15px;' }
+    %input.btn.btn-primary.property-btn{ type: 'submit' }

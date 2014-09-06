@@ -1,0 +1,29 @@
+.dues_container .thumb-dummy {
+	margin-top: 100%;
+}
+
+.dues_container .thumbnail {
+	position: absolute;
+	top: 15px;
+	bottom: 0;
+	left: 10px;
+	right: 0;
+	text-align: center;
+	padding-top: calc(50% - 30px);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 1.2em;
+	display: block;
+}
+
+.dues_container .thumbnail .pay {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 1.2em;
+}
+
+.dues_container .pay a {
+  text-decoration: none;
+}

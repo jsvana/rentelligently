@@ -4,13 +4,15 @@ class Property < ActiveRecord::Base
   has_many :rental_terms
   has_many :users, through: :rental_terms
   has_many :issues
+  has_many :utilities
 
   has_attached_file :image, default_url: 'house_placeholder.jpg'
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def current_occupants
     end_field = RentalTerm.arel_table[:end_date]
-    RentalTerm.where(end_field.gteq(Date.current)).map(&:user)
+    property_field = RentalTerm.arel_table[:property_id]
+    RentalTerm.where(end_field.gteq(Date.current).and(property_field.eq(self.id))).map(&:user)
   end
 
   def current_term

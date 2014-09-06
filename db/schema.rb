@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906201452) do
+ActiveRecord::Schema.define(version: 20140906212506) do
+
+  create_table "dues", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "utility_id"
+    t.decimal  "amount",     precision: 6, scale: 2
+    t.boolean  "paid",                               default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "issues", force: true do |t|
     t.integer  "property_id"
