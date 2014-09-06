@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :properties do
 		resources :issues
 	end
+
+	resources :landings, only: [:index]
 end

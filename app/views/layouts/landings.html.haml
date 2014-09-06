@@ -1,0 +1,31 @@
+!!! 5
+%html
+  %head
+    %title Rentelligent.ly
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %link{ href: "http://fonts.googleapis.com/css?family=Corben:bold|Rokkit|Pacifico|Quicksand|Muli", rel: "stylesheet", type: "text/css" }
+    %link{ href: "http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600", rel: "stylesheet", type: "text/css"}
+    %link{ href: "//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css", rel: "stylesheet"}
+
+  %body
+    %nav.navbar.navbar-fixed-top.navbar-inverse{ role: "navigation" }
+      .container
+        .navbar-header
+          %a.navbar-brand{ href: "#" } Rentelligent.ly
+
+        %ul.nav.navbar-nav
+          %li
+            = link_to 'Home', root_path
+          %li
+            = link_to 'Properties', properties_path
+          %li
+            %a{ href: '#' } Utilities
+          %li
+            %a{ href: '#' } Forums
+
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to 'Logout', destroy_user_session_path, method: :delete
+
+    = yield

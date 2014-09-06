@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 	def layout_by_resource
 		if devise_controller? and not user_signed_in?
 			'login'
+		elsif params[:controller] == "landings"
+			'landings'
 		else
 			'application'
 		end

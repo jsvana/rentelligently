@@ -69,6 +69,8 @@
 
 .properties_container img {
   display: table;
+  max-height: 500px;
+
 }
 
 .properties_container .cover {
@@ -135,4 +137,62 @@ h1.title {
 .property-btn {
 	background-color: #e74c3c;
 	border-color: #e74c3c;
+}
+
+h2.section-heading {
+	margin-top: 150px;
+	font-size: 38px;
+	color: #c0392b;
+	font-weight: bold;
+}
+
+.text-muted {
+	font-family: 'Muli', sans-serif;
+	font-size: 18px;
+	margin-bottom: 70px;
+}
+
+.text-primary {
+	color: #c0392b;
+}
+
+.about_container {
+	position:relative;
+	margin-top: 50%;
+	background-color: #ecf0f1;
+	width: 100%;
+}
+
+h2.about_heading {
+	margin-top: 50px;
+	color: #c0392b;
+	font-size: 38px;
+	margin-bottom: 30px;
+}
+
+h4.about-heading{
+	color: #e74c3c;
+}
+
+.about-text {
+	color: #777;
+    font-family: 'Muli', sans-serif;
+}
+
+.text-muted-about {
+	font-family: 'Muli', sans-serif;
+	max-width: 50%;
+	font-size: 18px;
+	margin-left: 25%;
+	line-height: 1.4em;
+	margin-bottom: 15px;
+}
+
+.sign_buttons {
+	margin-bottom: 30px;
+}
+
+section > .container {
+	width: 100%;
+	text-align: center;
 }
