@@ -23,6 +23,16 @@ class IssuesController < ApplicationController
     end
   end
 
+  def fix
+    @property = Property.find(params[:property_id])
+
+    @issue = Issue.find(params[:issue_id])
+    @issue.fixed = true
+    @issue.save
+
+    redirect_to @property, notice: 'Issue marked as fixed.'
+  end
+
 private
 
   def issue_params

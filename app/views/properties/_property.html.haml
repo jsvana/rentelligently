@@ -61,17 +61,20 @@
         - property.outstanding_issues.each do |issue|
           .col-md-3.col-sm-4.col-xs-6
             .thumb-dummy
-            .thumbnail.carrot.clouds.quicksand
-              .vcenter= issue.description
+            .thumbnail.carrot.clouds.quicksand= issue.description
             .thumbnail.carrot.clouds.quicksand.hide
-              = issue.user.email
-              %span.fa.fa-check
+              = "Reported by #{issue.user.first_name}"
+              %span.fix
+                = link_to property_issue_fix_path(property, issue), class: 'clouds', method: :post do
+                  %span.fa.fa-check
+                  %span &nbsp;Mark as Fixed
 
         - property.fixed_issues.each do |issue|
           .col-md-3.col-sm-4.col-xs-6
             .thumb-dummy
             .thumbnail.nephritis.clouds.quicksand= issue.description
-            .thumbnail.nephritis.clouds.quicksand.hide= issue.user.email
+            .thumbnail.nephritis.clouds.quicksand.hide
+              = "Reported by #{issue.user.first_name}"
 
     = link_to 'Report an Issue', new_property_issue_path(property)
 
