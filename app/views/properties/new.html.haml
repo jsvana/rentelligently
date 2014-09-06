@@ -27,6 +27,33 @@
         .input-group-addon
           %i.fa.fa-phone
         %input#phone_number.form-control{type: "text", name:"property[landlord_phone]", placeholder: "Landlord Phone Number"}
-    = f.file_field :image
-    .form-group{ style: 'text-align: center' }
+
+    .form-group
+      #datepicker.input-daterange.input-group
+        %span.input-group-addon
+          %i.fa.fa-calendar
+        %input.input-sm.form-control{ type: "text", name: 'rental_term[start_date]', placeholder: 'Lease Start', data: { provide: 'datepicker' }}
+        %span.input-group-addon to
+        %input.input-sm.form-control{ type: "text", name: "rental_term[end_date]", placeholder: 'Lease End', data: { provide: 'datepicker' }}
+
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-edit
+        %textarea.form-control{name: 'rental_term[comments]', placeholder: 'Comments on rental'}
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-star
+        %input.form-control{type: "text", name:"rental_term[property_rating]", placeholder: "Property Rating (1-5)"}
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-heart
+        %input.form-control{type: "text", name:"rental_term[landlord_rating]", placeholder: "Landlord Rating (1-5)"}
+
+    .form-group
+      = f.file_field :image
+
+    .form-group{ style: 'text-align: center; margin-top: 15px;' }
       %input.btn.btn-primary.property-btn{ type: 'submit' }
