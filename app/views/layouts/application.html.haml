@@ -7,5 +7,25 @@
     = csrf_meta_tags
 
   %body
-    .container
+    %nav.navbar.navbar-fixed-top.navbar-inverse{ role: "navigation" }
+      .container
+        .navbar-header
+          %a.navbar-brand{ href: "#" } Rentelligently
+
+        %ul.nav.navbar-nav
+          %li
+            = link_to 'Home', root_path
+          %li
+            = link_to 'Properties', properties_path
+          %li
+            %a{ href: '#' } Utilities
+          %li
+            %a{ href: '#' } Roommates
+          %li
+            %a{ href: '#' } Forums
+
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to 'Logout', destroy_user_session_path, method: :delete
+
+    #content.container
       = yield

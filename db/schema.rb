@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906062841) do
+ActiveRecord::Schema.define(version: 20140906073050) do
+
+  create_table "issues", force: true do |t|
+    t.integer  "property_id"
+    t.text     "description"
+    t.boolean  "fixed",       default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "properties", force: true do |t|
     t.string   "address"
@@ -19,6 +27,9 @@ ActiveRecord::Schema.define(version: 20140906062841) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "landlord_name"
+    t.string   "landlord_phone"
+    t.string   "landlord_email"
   end
 
   create_table "rental_terms", force: true do |t|

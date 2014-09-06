@@ -6,11 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :properties
 
-  def self.rentors
-    User.where(user_type: 'rentor')
-  end
-
-  def self.rentees
-    User.where(user_type: 'rentee')
+  def current_property
+    start_field = RentalTerm.arel_table[:start_date]
+    end_field = RentalTerm.arel_table[:end_date]
+    RentalTerm.where(start_field.lteq(Date.current).and(end_field.gteq(Date.current))).first.property
   end
 end

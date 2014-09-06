@@ -1,0 +1,41 @@
+%ul#dashboard-tabs.nav.nav-tabs.dashboard{ role: "tablist" }
+  %li.active
+    %a{ href: "#home", data: { toggle: "tab" }} Home
+  %li
+    %a{ href: "#issues", data: { toggle: "tab" }} Issues
+
+.tab-content
+  #home.tab-pane.active
+    .row
+      .col-md-8
+        %h2.rating= "Rental Unit Rating: #{@property.average_property_rating}"
+        %h2.rating= "Landlord Rating: #{@property.average_property_rating}"
+
+        - if @property.comments
+          %h2.comments Comments:
+          - @property.comments.each do |comment|
+            %p= comment
+
+      .col-md-4.summary_details
+        %h3.house_name Wood House
+        .img_circle_holder{ align: "center" }
+        %p.address_information= @property.address
+        %hr
+        %h3.landlord_name= @property.landlord_name
+        .img_circle_landlord{ align: "center" }
+        %p.landlord_email= @property.landlord_email
+        %p.landlord_phone_number= @property.landlord_phone
+
+  #issues.tab-pane
+    %h2 Issues
+    - if @property.issues
+      - @property.issues.each do |issue|
+        - if issue.fixed
+          %strike= issue.description
+        - else
+          %p= issue.description
+    - else
+      %p No issues have been reported.
+    = link_to 'Report an Issue', new_property_issue_path(@property)
+
+= link_to 'Show All Properties', properties_path

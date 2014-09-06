@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'dashboards#index'
 
-  resources :properties
+  resources :properties do
+		resources :issues
+	end
 end
