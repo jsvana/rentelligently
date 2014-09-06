@@ -15,19 +15,25 @@
             .square
               %h2.rating.clouds Rental Unit Rating
               %h3.rating
-                - @property.average_property_rating.round.times do |x|
-                  %span.fa.fa-star.yellow
+                - if property.has_terms?
+                  - property.average_property_rating.round.times do |x|
+                    %span.fa.fa-star.yellow
+                - else
+                  %p Property not yet rated
           .col-md-4.landlord_ratings_container
             .square
               %h2.rating.clouds Landlord Rating
               %h3.rating
-                - @property.average_landlord_rating.round.times do |x|
-                  %span.fa.fa-star.yellow
+                - if property.has_terms?
+                  - property.average_landlord_rating.round.times do |x|
+                    %span.fa.fa-star.yellow
+                - else
+                  %p Property not yet rated
 
-        - if @property.comments
+        - if property.comments.any?
           .comments_container
             %h3.comments Comments:
-            - @property.comments.each do |comment|
+            - property.comments.each do |comment|
               %p.comments= comment
         .property-buttons
           %button.btn.btn-primary.edit_button
@@ -36,37 +42,40 @@
           = link_to 'Show All Properties', properties_path, class: 'btn btn-default'
 
       .col-md-4.summary_details
-        %h3.house_name Wood House
-        .img_circle_holder{ align: "center" }
-        %p.address_information= @property.address
+        .img_circle_holder{ align: "center", style: 'margin-top: 15px;' }
+        %p.address_information= property.address
         %hr
-        %h3.landlord_name= @property.landlord_name
+        %h3.landlord_name= property.landlord_name
         .img_circle_landlord{ align: "center" }
-        %p.landlord_email= @property.landlord_email
-        %p.landlord_phone_number= @property.landlord_phone
+        %p.landlord_email= property.landlord_email
+        %p.landlord_phone_number= property.landlord_phone
 
   #issues.tab-pane
     .row
-      - @property.outstanding_issues.each do |issue|
-        .col-md-3.col-sm-4.col-xs-6
-          .thumb-dummy
-          .thumbnail.carrot.clouds.quicksand
-            .vcenter= issue.description
-          .thumbnail.carrot.clouds.quicksand.hide
-            = issue.user.email
-            %span.fa.fa-check
+      - if property.issues.empty?
+        .col-md-12
+          %p No issues yet.
+      - else
+        - property.outstanding_issues.each do |issue|
+          .col-md-3.col-sm-4.col-xs-6
+            .thumb-dummy
+            .thumbnail.carrot.clouds.quicksand
+              .vcenter= issue.description
+            .thumbnail.carrot.clouds.quicksand.hide
+              = issue.user.email
+              %span.fa.fa-check
 
-      - @property.fixed_issues.each do |issue|
-        .col-md-3.col-sm-4.col-xs-6
-          .thumb-dummy
-          .thumbnail.nephritis.clouds.quicksand= issue.description
-          .thumbnail.nephritis.clouds.quicksand.hide= issue.user.email
+        - property.fixed_issues.each do |issue|
+          .col-md-3.col-sm-4.col-xs-6
+            .thumb-dummy
+            .thumbnail.nephritis.clouds.quicksand= issue.description
+            .thumbnail.nephritis.clouds.quicksand.hide= issue.user.email
 
-    = link_to 'Report an Issue', new_property_issue_path(@property)
+    = link_to 'Report an Issue', new_property_issue_path(property)
 
   #roommates.tab-pane
-    - if @property.current_term.roommates.any?
-      - @property.current_term.roommates.each do |roommate|
+    - if property.has_terms? and property.current_term.roommates.any?
+      - property.current_term.roommates.each do |roommate|
         = roommate.roommate.email
     - else
       %p No roommates listed.

@@ -8,8 +8,12 @@ class User < ActiveRecord::Base
   has_many :roommates
 
   def current_property
-    start_field = RentalTerm.arel_table[:start_date]
     end_field = RentalTerm.arel_table[:end_date]
-    RentalTerm.where(start_field.lteq(Date.current).and(end_field.gteq(Date.current))).first.property
+    user_field = RentalTerm.arel_table[:user_id]
+    RentalTerm.where(end_field.gteq(Date.current).and(user_field.eq(self.id))).first.try(:property)
+  end
+
+  def has_current_property?
+    self.current_property.present?
   end
 end

@@ -9,6 +9,10 @@ class Property < ActiveRecord::Base
     self.rental_terms.order(end_date: :desc).first
   end
 
+  def has_terms?
+    self.rental_terms.count > 0
+  end
+
   def average_property_rating
     self.rental_terms.pluck(:property_rating).reduce(:+) / self.rental_terms.count
   end

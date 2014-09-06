@@ -22,13 +22,21 @@ class PropertiesController < ApplicationController
 	end
 
 	def create
-		@property = Property.new(params[:property])
+		@property = Property.new(property_params)
+		@property.user_id = current_user.id
 
 		if @property.save
-			redirect_to dashboards_path, notice: 'Property added successfully.'
+			redirect_to root_path, notice: 'Property added successfully.'
 		else
 			flash[:alert] = @property.errors.full_messages.join(', ')
 			respond_with(@property)
 		end
+	end
+
+private
+
+	def property_params
+		params.require(:property).permit(:address, :description, :landlord_name,
+																		 :landlord_phone, :landlord_email)
 	end
 end

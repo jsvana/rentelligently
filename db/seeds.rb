@@ -15,8 +15,8 @@ rex = User.create!(
 )
 
 phil = User.create!(
-	email: 'phil@mtu.edu',
-	password: 'linked2736'
+	email: 'pjmiddle@mtu.edu',
+	password: 'test1234'
 )
 
 hubbell = Property.create!(
