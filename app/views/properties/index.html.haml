@@ -1,0 +1,8 @@
+%h1 Properties
+
+- if @properties.empty?
+  %p No properties, yet.
+- else
+  - @properties.each do |property|
+    %h3= property.address
+    %p= property.description
