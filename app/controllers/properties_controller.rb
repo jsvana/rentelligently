@@ -26,15 +26,10 @@ class PropertiesController < ApplicationController
 		@property.user_id = current_user.id
 
 		if @property.save
-			ap params[:rental_term]
-			ap rental_term_params
 			rental_term = RentalTerm.new(rental_term_params)
-			#rental_term.end_date = params[:rental_term][:end_date]
 			rental_term.user_id = current_user.id
 			rental_term.property_id = @property.id
-			ap rental_term
 			rental_term.save
-			ap rental_term.errors.full_messages.join(', ')
 			redirect_to root_path, notice: 'Property added successfully.'
 		else
 			flash[:alert] = @property.errors.full_messages.join(', ')
@@ -45,8 +40,9 @@ class PropertiesController < ApplicationController
 private
 
 	def property_params
-		params.require(:property).permit(:address, :description, :landlord_name,
-																		 :landlord_phone, :landlord_email, :image)
+		params.require(:property).permit(:name, :address, :description,
+																		 :landlord_name, :landlord_phone,
+																		 :landlord_email, :image, :rent)
 	end
 
 	def rental_term_params

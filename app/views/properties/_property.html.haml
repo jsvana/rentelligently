@@ -42,13 +42,15 @@
           = link_to 'Show All Properties', properties_path, class: 'btn btn-default'
 
       .col-md-4.summary_details
-        .img_circle_holder{ align: "center", style: 'margin-top: 15px;' }
-        %p.address_information= property.address
+        %h3.house_name.clouds= property.name
+        .img_circle_holder{ align: "center" }
+        %p.address_information.clouds= property.address
         %hr
-        %h3.landlord_name= property.landlord_name
-        .img_circle_landlord{ align: "center" }
-        %p.landlord_email= property.landlord_email
-        %p.landlord_phone_number= property.landlord_phone
+        %h3.landlord_name.clouds= property.landlord_name
+        %p.landlord_email.clouds= property.landlord_email
+        %p.landlord_phone_number.clouds= property.landlord_phone
+        %hr
+        %h3.clouds= "#{number_to_currency(property.rent, unit: '$')} per month"
 
   #issues.tab-pane
     .row.issues_container
@@ -74,8 +76,8 @@
     = link_to 'Report an Issue', new_property_issue_path(property)
 
   #roommates.tab-pane
-    - if property.has_terms? and property.current_term.roommates.any?
-      - property.current_term.roommates.each do |roommate|
-        = roommate.roommate.email
+    - if property.has_terms? and property.current_occupants.any?
+      - property.current_occupants.each do |user|
+        = render 'users/user', user: user
     - else
       %p No roommates listed.

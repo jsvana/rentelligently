@@ -3,9 +3,12 @@ Rails.application.routes.draw do
 
   root to: 'dashboards#index'
 
-  resources :properties do
-		resources :issues
-	end
+  resources :landings, only: [:index]
 
-	resources :landings, only: [:index]
+  resources :properties do
+    resources :issues
+    resources :utilities
+  end
+
+  resources :users, only: [:show, :edit, :update]
 end

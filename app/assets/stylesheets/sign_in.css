@@ -101,16 +101,6 @@ p.comments {
 	font-family: 'Muli', sans-serif;
 }
 
-/*.properties_container {*/
-	/*width: 100%;*/
-	/*background-color: #ecf0f1;*/
-	/*border-style: solid;*/
-	/*border-top-color: #ecf0f1;*/
-	/*border-right-color: #ecf0f1;*/
-	/*border-left-color:#2c3e50;*/
-	/*border-bottom-color: #2c3e50;*/
-/*}*/
-
 h3.address {
 	padding-left: 1%;
 	padding-top: 1%;
@@ -123,13 +113,11 @@ p.description {
 
 h3.house_name {
 	font-family: Pacifico, cursive;
-	color: #ffffff;
 	font-size: 28px;
 }
 
 h3.landlord_name {
 	font-family: Pacifico, cursive;
-	color: #ffffff;
 	font-size: 28px;
 }
 
@@ -140,7 +128,6 @@ p.address_information {
 
 p.landlord_phone_number {
 	padding-top: 1%;
-	font-weight: bold;
 }
 
 .summary_details {

@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :properties
   has_many :roommates
 
+  has_attached_file :profile, default_url: 'profile.jpg'
+  validates_attachment_content_type :profile, :content_type => /\Aimage\/.*\Z/
+
   def current_property
     end_field = RentalTerm.arel_table[:end_date]
     user_field = RentalTerm.arel_table[:user_id]
@@ -15,5 +18,9 @@ class User < ActiveRecord::Base
 
   def has_current_property?
     self.current_property.present?
+  end
+
+  def name
+    "#{first_name} #{last_name}"
   end
 end

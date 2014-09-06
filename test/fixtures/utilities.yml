@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  property_id: 1
+  due_by: 2014-09-06
+  cost: MyString
+
+two:
+  property_id: 1
+  due_by: 2014-09-06
+  cost: MyString

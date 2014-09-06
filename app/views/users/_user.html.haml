@@ -1,0 +1,6 @@
+.col-md-3
+  .well.center
+    = image_tag user.profile.url, class: 'img-thumbnail', style: 'width: 140px; height: 140px;'
+    %h3= user.name
+    - if user.has_current_property?
+      %p= "Lives at #{user.current_property.name}"

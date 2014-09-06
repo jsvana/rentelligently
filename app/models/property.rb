@@ -8,6 +8,11 @@ class Property < ActiveRecord::Base
   has_attached_file :image, default_url: 'house_placeholder.jpg'
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  def current_occupants
+    end_field = RentalTerm.arel_table[:end_date]
+    RentalTerm.where(end_field.gteq(Date.current)).map(&:user)
+  end
+
   def current_term
     self.rental_terms.order(end_date: :desc).first
   end

@@ -5,6 +5,11 @@
     .form-group
       .input-group
         .input-group-addon
+          %i.fa.fa-home
+        %input.form-control{type: "text", name: "property[name]", placeholder: "Name", required: true}
+    .form-group
+      .input-group
+        .input-group-addon
           %i.fa.fa-building
         %input#address.form-control{type: "text", name: "property[address]", placeholder: "Address", required: true}
     .form-group
@@ -27,14 +32,19 @@
         .input-group-addon
           %i.fa.fa-phone
         %input#phone_number.form-control{type: "text", name:"property[landlord_phone]", placeholder: "Landlord Phone Number"}
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-money
+        %input.form-control{type: "text", name:"property[rent]", placeholder: "Rent"}
 
     .form-group
       #datepicker.input-daterange.input-group
         %span.input-group-addon
           %i.fa.fa-calendar
-        %input.input-sm.form-control{ type: "text", name: 'rental_term[start_date]', placeholder: 'Lease Start', data: { provide: 'datepicker' }}
+        %input.input-sm.form-control{ type: "text", name: 'rental_term[start_date]', placeholder: 'Lease Start', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
         %span.input-group-addon to
-        %input.input-sm.form-control{ type: "text", name: "rental_term[end_date]", placeholder: 'Lease End', data: { provide: 'datepicker' }}
+        %input.input-sm.form-control{ type: "text", name: "rental_term[end_date]", placeholder: 'Lease End', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' }}}
 
     .form-group
       .input-group
@@ -45,12 +55,12 @@
       .input-group
         .input-group-addon
           %i.fa.fa-star
-        %input.form-control{type: "text", name:"rental_term[property_rating]", placeholder: "Property Rating (1-5)"}
+        %input.form-control{type: "text", name:"rental_term[property_rating]", required: true, placeholder: "Property Rating (1-5)"}
     .form-group
       .input-group
         .input-group-addon
           %i.fa.fa-heart
-        %input.form-control{type: "text", name:"rental_term[landlord_rating]", placeholder: "Landlord Rating (1-5)"}
+        %input.form-control{type: "text", name:"rental_term[landlord_rating]", required: true, placeholder: "Landlord Rating (1-5)"}
 
     .form-group
       = f.file_field :image
