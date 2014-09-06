@@ -1,10 +1,11 @@
 %h1 Properties
 
-- if @properties.empty?
-  %p No properties, yet.
-- else
-  - @properties.each do |property|
-    %h3= link_to property.address, property
-    %p= property.description
+.properties_container
+  - if @properties.empty?
+    %p No properties, yet.
+  - else
+    - @properties.each do |property|
+      %h3.address= link_to property.address, property
+      %p.description= property.description
 
 = link_to 'Add Property', new_property_path

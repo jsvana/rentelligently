@@ -9,13 +9,30 @@ html.signin {
 	opacity:0.8;
 }
 
+.navbar-inverse {
+	background-color: #e74c3c;
+	border-color: #c0392b;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #ecf0f1;
+}
+
+.navbar-inverse .navbar-brand {		
+	color: #ecf0f1;
+}
+
+.navbar-fixed-top {
+	top: 0;
+	border-width: 0 0 5px;
+}
+
 div.container {
 	opacity: 1.0 !important;
 	margin: auto;
 	position: absolute;
 	vertical-align: middle;
 	top: 0; left: 0; bottom: 0; right: 0;
-
 }
 
 h2.main_header {
@@ -46,4 +63,108 @@ div.img_circle_landlord {
 
 .summary_details {
 	text-align: center;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+h2.rating {
+	position: relative;
+	top: 30%;
+	padding-bottom: 20px;
+	font-family: Adelle, Georgia, Times, Serif;
+	color: #2c3e50;
+	text-align: center;
+}
+
+h3.rating {
+	text-align: center;
+	position: relative;
+	top: 20%;
+}
+
+div.comments_container {
+	background-color: #e9eaed;
+	height: 100%;
+	border-radius: 8px;
+	margin-top: 50px;
+}
+
+h3.comments {
+	padding-left: 1%;
+	padding-top: 1%;
+}
+
+p.comments {
+	padding-left: 1%;
+	padding-top: 1%;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.properties_container {
+	width: 100%;
+	background-color: #ecf0f1;
+	border-style: solid;
+	border-top-color: #ecf0f1;
+	border-right-color: #ecf0f1;
+	border-left-color:#2c3e50;
+	border-bottom-color: #2c3e50;
+}
+
+h3.address {
+	padding-left: 1%;
+	padding-top: 1%;
+}
+
+p.description {
+	padding-left: 1%;
+	padding-top: 1%;
+}
+
+h3.house_name {
+	font-family: Pacifico, cursive;
+	color: #ffffff;
+	font-size: 28px;
+}
+
+h3.landlord_name {
+	font-family: Pacifico, cursive;
+	color: #ffffff;
+	font-size: 28px;
+}
+
+p.address_information {
+	padding-top: 1%;
+	font-weight: bold;
+}
+
+p.landlord_phone_number {
+	padding-top: 1%;
+	font-weight: bold;
+}
+
+.summary_details {
+	background-color: #2ecc71;
+}
+
+.edit_button {
+	padding-top: 1%;
+}
+
+.rental_ratings_container {
+	padding-top: 10px;
+	width: 50%;
+}
+
+.landlord_ratings_container {
+	padding-top: 10px;
+	width: 50%;
+}
+
+.square {
+	padding-top: 5px;
+	width: 350px;
+	height: 300px;
+	background-color: #3498db;
+	border-radius: 10px;
+
 }

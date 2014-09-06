@@ -1,6 +1,6 @@
 %ul#dashboard-tabs.nav.nav-tabs.dashboard{ role: "tablist" }
   %li.active
-    %a{ href: "#home", data: { toggle: "tab" }} Home
+    %a{ href: "#home", data: { toggle: "tab" }} Summary
   %li
     %a{ href: "#issues", data: { toggle: "tab" }} Issues
 
@@ -8,13 +8,23 @@
   #home.tab-pane.active
     .row
       .col-md-8
-        %h2.rating= "Rental Unit Rating: #{@property.average_property_rating}"
-        %h2.rating= "Landlord Rating: #{@property.average_property_rating}"
+        .row
+          .col-md-4.rental_ratings_container
+            .square
+              %h2.rating= "Rental Unit Rating"
+              %h3.rating= "#{@property.average_property_rating}"
+          .col-md-4.landlord_ratings_container
+            .square
+              %h2.rating= "Landlord Rating"
+              %h3.rating= "#{@property.average_property_rating}"
 
         - if @property.comments
-          %h2.comments Comments:
-          - @property.comments.each do |comment|
-            %p= comment
+          .comments_container
+            %h3.comments Comments:
+            - @property.comments.each do |comment|
+              %p.comments= comment
+          %button.btn.btn-default.btn-lg.edit_button
+            %span.glyphicon.glyphicon-pencil Edit
 
       .col-md-4.summary_details
         %h3.house_name Wood House
