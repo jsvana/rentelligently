@@ -1,8 +1,77 @@
-body.sign_in {
+html.signin {
 	background: url(nice_place.jpg) no-repeat center center fixed;
+	width: 100%;
+	height: 100%;
 	-webkit-background-size: cover;
  	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
-	background-color: none !important;
+  	opacity:0.8;
+}
+
+div.container {
+	opacity: 1.0 !important;
+	margin: auto;
+	position: absolute;
+	vertical-align: middle;
+	top: 0; left: 0; bottom: 0; right: 0;
+
+}
+
+h2.main_header {
+	font-style: pico;
+}
+
+div.home_container {
+	height: 600px;
+}
+
+div.home_nav_container {
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 6%;
+	width: 80%;
+	height: 80%;
+}
+
+div.right_summary_container {
+	border:2px solid;
+}
+
+ul.nav.nav-tabs.dashboard {
+	background-color: #3b5998;
+}
+
+ul.nav.nav-tabs.dashboard > li > a {
+	color: #ffffff;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	color: #3b5998;
+}
+
+div.img_circle_holder {
+ width: 200px;
+ height: 200px;
+ background-image: url(house_placeholder.jpg);
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+div.img_circle_landlord {
+ width: 200px;
+ height: 200px;
+ background-image: url(landlord.jpg);
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.summary_details {
+	text-align: center;
 }

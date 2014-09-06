@@ -1,0 +1,64 @@
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">Rentelligently</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="">Home</a>
+                </li>
+                <li><a href="">Utilties</a>
+                </li>
+                <li><a href="">Roommates</a>
+                </li>
+                <li><a href="">Forums</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="home_nav_container">
+	<div class="home_container">
+		<ul class="nav nav-tabs dashboard" role="tablist">
+	  		<li class="active"><a href="#">Home</a></li>
+	  		<li><a href="#">Issues</a></li>
+	  		<li><a href="#">Images</a></li>
+	  		<li><a href="#">Contact Information</a></li>
+		</ul>
+		<div class="row">
+			<div class="col-md-8">
+				<h2 class="rating">Rental Unit Rating:</h2>
+				<h2 class="rating">Landlord Rating:</h2>
+				<h2 class="Description">Description:</h2>
+				<p> blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah </p>
+				<p> Some fucking text and shit </p>
+			</div>
+
+			<div class="col-md-4 summary_details">
+				<h3 class="house_name">Wood House</h3>
+					<div class="img_circle_holder" align="center"></div>
+					<p class="address_information"> 20063 Henry St. Houghton, MI 49931 </p>
+					<hr />
+				<h3 class="landlord_name">Mark Wendingler</h3>
+					<div class="img_circle_landlord" align="center"></div>
+					<p class="landlord_email">wendingler@dumbass.com</p>
+					<p class="landlord_phone_number"> 123-456-7890</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
