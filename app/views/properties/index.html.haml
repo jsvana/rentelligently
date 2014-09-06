@@ -1,11 +1,20 @@
-%h1 Properties
+%h1.quicksand.center{ style: 'margin-bottom: 5px;' } Properties
 
-.properties_container
+.row.properties_container
   - if @properties.empty?
     %p No properties, yet.
   - else
     - @properties.each do |property|
-      %h3.address= link_to property.address, property
-      %p.description= property.description
+      .col-md-6.col-sm-6.col-xs-6.center{ style: 'margin-top: 15px;' }
+        = link_to property do
+          .thumbnail
+            = image_tag property.image.url, class: 'img-rounded'
+          .cover.carrot.clouds.quicksand
+            .row
+              .col-md-12
+                %p= property.address
+                %p= property.landlord_name
 
-= link_to 'Add Property', new_property_path
+.row
+  .col-md-12.center{ style: 'margin-top: 15px;' }
+    = link_to 'Add Property', new_property_path, class: 'btn btn-lg asbestos clouds'

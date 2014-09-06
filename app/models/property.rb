@@ -5,6 +5,9 @@ class Property < ActiveRecord::Base
   has_many :users, through: :rental_terms
   has_many :issues
 
+  has_attached_file :image, default_url: 'house_placeholder.jpg'
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
   def current_term
     self.rental_terms.order(end_date: :desc).first
   end

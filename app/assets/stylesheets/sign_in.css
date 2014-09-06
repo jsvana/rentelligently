@@ -101,15 +101,15 @@ p.comments {
 	font-family: 'Muli', sans-serif;
 }
 
-.properties_container {
-	width: 100%;
-	background-color: #ecf0f1;
-	border-style: solid;
-	border-top-color: #ecf0f1;
-	border-right-color: #ecf0f1;
-	border-left-color:#2c3e50;
-	border-bottom-color: #2c3e50;
-}
+/*.properties_container {*/
+	/*width: 100%;*/
+	/*background-color: #ecf0f1;*/
+	/*border-style: solid;*/
+	/*border-top-color: #ecf0f1;*/
+	/*border-right-color: #ecf0f1;*/
+	/*border-left-color:#2c3e50;*/
+	/*border-bottom-color: #2c3e50;*/
+/*}*/
 
 h3.address {
 	padding-left: 1%;

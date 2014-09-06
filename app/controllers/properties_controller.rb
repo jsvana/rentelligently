@@ -37,6 +37,6 @@ private
 
 	def property_params
 		params.require(:property).permit(:address, :description, :landlord_name,
-																		 :landlord_phone, :landlord_email)
+																		 :landlord_phone, :landlord_email, :image)
 	end
 end

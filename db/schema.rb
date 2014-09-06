@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906145850) do
+ActiveRecord::Schema.define(version: 20140906171810) do
 
   create_table "issues", force: true do |t|
     t.integer  "property_id"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 20140906145850) do
     t.string   "landlord_name"
     t.string   "landlord_phone"
     t.string   "landlord_email"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "rental_terms", force: true do |t|

@@ -5,18 +5,13 @@
     .form-group
       .input-group
         .input-group-addon
-          %i.fa.fa-envelope
-        %input#landlord_email.form-control{type: "text", name: "property[landlord_email]", placeholder: "Email", required: true}
-    .form-group
-      .input-group
-        .input-group-addon
           %i.fa.fa-building
         %input#address.form-control{type: "text", name: "property[address]", placeholder: "Address", required: true}
     .form-group
       .input-group
         .input-group-addon
           %i.fa.fa-pencil-square
-        %input#description.form-control{type: "text", name: "property[description]", placeholder: "Description"}
+        %textarea#description.form-control{name: "property[description]", placeholder: "Description"}
     .form-group
       .input-group
         .input-group-addon
@@ -25,7 +20,13 @@
     .form-group
       .input-group
         .input-group-addon
-          %i.fa.fa-phone
-        %input#phone_number.form-control{type: "text", name:"property[landlord_phone]", placeholder: "Phone Number"}
+          %i.fa.fa-envelope
+        %input#landlord_email.form-control{type: "text", name: "property[landlord_email]", placeholder: "Landlord Email", required: true}
     .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-phone
+        %input#phone_number.form-control{type: "text", name:"property[landlord_phone]", placeholder: "Landlord Phone Number"}
+    = f.file_field :image
+    .form-group{ style: 'text-align: center' }
       %input.btn.btn-primary.property-btn{ type: 'submit' }
