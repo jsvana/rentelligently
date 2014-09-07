@@ -1,20 +1,18 @@
-%h2{:class => "sign_header", :id => "sign_header"} Sign In
-
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  %div.email
-    = f.label :email
-    = f.email_field :email, autofocus: true
-
-  %div.password
-    = f.label :password
-    = f.password_field :password, autocomplete: "off"
-
-  - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me 
-      = f.label :remember_me
-
-  %div.login_button
-    = f.submit "Log in"
-
-= render "devise/shared/links"
+.sign_in_page
+  .well.well-lg
+    %h1.main_header Rentelligent.ly
+    %hr
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-user.pomegranate_sign
+          %input.form-control{type: "text", name: "session[email]", placeholder: "Email Address", required: true}
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-lock.pomegranate_sign
+          %input#address.form-control{type: "password", name: "session[password]", placeholder: "Password", required: true}
+      .form-group{ style: 'text-align: center; margin-top: 15px;' }
+      %input.btn.btn-primary.property-btn{ type: 'submit', value: "Sign Up" }
+      %input.btn.btn-primary.property-btn.sign-in-button{ type: 'submit', value: "Sign In" }
