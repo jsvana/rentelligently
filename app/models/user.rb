@@ -58,16 +58,17 @@ class User < ActiveRecord::Base
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
 
-    request = Net::HTTP::Post.new(uri.path, {'Content-Type' =>'application/json'})
+    request = Net::HTTP::Post.new(uri.path)
 
     data = {
       access_token: self.token,
-      user_id: user.uid,
-      node: note,
+      email: user.email,
+      note: note,
       amount: amount
     }
+    ap data.to_query
 
-    request.body = data.to_json
+    request.body = data.to_query
 
     http.request(request)
   end
