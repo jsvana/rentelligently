@@ -232,3 +232,7 @@ section > .container {
     margin: 0 auto;
     margin-top: 15%;
 }
+
+.property_style {
+	color: #c0392b;
+}
