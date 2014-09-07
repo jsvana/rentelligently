@@ -1,0 +1,23 @@
+.form-group
+  #datepicker.input-daterange.input-group
+    %span.input-group-addon
+      %i.fa.fa-calendar
+    %input.input-sm.form-control{ type: "text", name: 'rental_term[start_date]', placeholder: 'Lease Start', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
+    %span.input-group-addon to
+    %input.input-sm.form-control{ type: "text", name: 'rental_term[end_date]', placeholder: 'Lease End', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
+
+.form-group
+  .input-group
+    .input-group-addon
+      %i.fa.fa-edit
+    %textarea.form-control{name: 'rental_term[comments]', placeholder: 'Comments on rental'}
+.form-group
+  .input-group
+    .input-group-addon
+      %i.fa.fa-star
+    %input.form-control{type: "text", name:"rental_term[property_rating]", required: true, placeholder: "Property Rating (1-5)"}
+.form-group
+  .input-group
+    .input-group-addon
+      %i.fa.fa-heart
+    %input.form-control{type: "text", name:"rental_term[landlord_rating]", required: true, placeholder: "Landlord Rating (1-5)"}

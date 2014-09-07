@@ -36,7 +36,7 @@
             - property.comments.each do |comment|
               %p.comments= comment
         .property-buttons
-          %button.btn.btn-primary.edit_button
+          = link_to edit_property_path(@property), class: 'btn btn-primary' do
             %span.fa.fa-pencil &nbsp;Edit
 
           = link_to 'Show All Properties', properties_path, class: 'btn btn-default'
@@ -76,7 +76,9 @@
             .thumbnail.nephritis.clouds.quicksand.hide
               = "Reported by #{issue.user.first_name}"
 
-    = link_to 'Report an Issue', new_property_issue_path(property)
+    .row
+      .col-md-12.center
+        = link_to 'Report an Issue', new_property_issue_path(property), class: 'btn btn-primary'
 
   #roommates.tab-pane
     - if property.has_terms? and property.current_occupants.any?

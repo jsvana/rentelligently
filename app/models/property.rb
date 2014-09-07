@@ -6,6 +6,8 @@ class Property < ActiveRecord::Base
   has_many :issues
   has_many :utilities
 
+	validates :address, :landlord_name, :rent, presence: true
+
   has_attached_file :image, default_url: 'house_placeholder.jpg'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
