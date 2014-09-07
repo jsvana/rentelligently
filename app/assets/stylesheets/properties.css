@@ -236,3 +236,24 @@ section > .container {
 .property_style {
 	color: #c0392b;
 }
+
+.wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+.push,
+.footer {
+	height: 60px;
+}
+.footer {
+	background-color: #e74c3c;
+}
+
+h3.footer_content {
+	color: white;
+}

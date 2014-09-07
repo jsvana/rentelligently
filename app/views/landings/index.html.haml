@@ -1,42 +1,45 @@
-%section
-  .container
-    .row
-      .col-lg-12.text-center
-        %h2.section-heading.quicksand Rentelligent.ly
-        %h3.section-subheading.text-muted Improving living standards for college students everywhere.
-    .row.text-center
-      .col-md-4
-        %span.fa-stack.fa-4x
-          %i.fa.fa-circle.fa-stack-2x.text-primary
-          %i.fa.fa-home.fa-stack-1x.fa-inverse
-        %h4.service-heading Community Rental Unit Ratings
-        %p.text-muted Our community looks out for one another.  With our landlord and rental unit ratings, you can never expect to be in a terrible living situation again.
-      .col-md-4
-        %span.fa-stack.fa-4x
-          %i.fa.fa-circle.fa-stack-2x.text-primary
-          %i.fa.fa-lightbulb-o.fa-stack-1x.fa-inverse
-        %h4.service-heading Utility Management
-        %p.text-muted With our utility management tools you will be able to handle paying bills with your roommates hastle free!
-      .col-md-4
-        %span.fa-stack.fa-4x
-          %i.fa.fa-circle.fa-stack-2x.text-primary
-          %i.fa.fa-comment-o.fa-stack-1x.fa-inverse
-        %h4.service-heading Community Forums
-        %p.text-muted Connect with our many users to discuss housing in your area and find your perfect living arrangement!
+.wrap
+  %section
+    .container
+      .row
+        .col-lg-12.text-center
+          %h2.section-heading.quicksand Rentelligent.ly
+          %h3.section-subheading.text-muted Improving living standards for college students everywhere.
+      .row.text-center
+        .col-md-4
+          %span.fa-stack.fa-4x
+            %i.fa.fa-circle.fa-stack-2x.text-primary
+            %i.fa.fa-home.fa-stack-1x.fa-inverse
+          %h4.service-heading Community Rental Unit Ratings
+          %p.text-muted Our community looks out for one another.  With our landlord and rental unit ratings, you can never expect to be in a terrible living situation again.
+        .col-md-4
+          %span.fa-stack.fa-4x
+            %i.fa.fa-circle.fa-stack-2x.text-primary
+            %i.fa.fa-lightbulb-o.fa-stack-1x.fa-inverse
+          %h4.service-heading Utility Management
+          %p.text-muted With our utility management tools you will be able to handle paying bills with your roommates hastle free!
+        .col-md-4
+          %span.fa-stack.fa-4x
+            %i.fa.fa-circle.fa-stack-2x.text-primary
+            %i.fa.fa-comment-o.fa-stack-1x.fa-inverse
+          %h4.service-heading Community Forums
+          %p.text-muted Connect with our many users to discuss housing in your area and find your perfect living arrangement!
+
+  %section
+    .about_container
+      .row.text-center
+        .col-lg-12.text-center
+          %h2.about_heading.quicksand About Us
+          %h3.section-subheading.text-muted-about Rentelligent.ly stems from a college career of poor living conditions and landlords who did not have our best interests in mind when leasing us our units.  After finally having enough, Rentelligent.ly was created to help prevent these things from continuing to happen in the future.  Our goal is to try to raise the quality of living for college students.
+      .row.text-center
+        .sign_buttons
+          = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-lg pomegranate clouds'
+          = link_to 'Sign In', new_user_session_path, class: 'btn btn-lg pomegranate clouds'
+
+.push
 
 %section
-  .about_container
-    .row.text-center
-      .col-lg-12.text-center
-        %h2.about_heading.quicksand About Us
-        %h3.section-subheading.text-muted-about Rentelligent.ly stems from a college career of poor living conditions and landlords who did not have our best interests in mind when leasing us our units.  After finally having enough, Rentelligent.ly was created to help prevent these things from continuing to happen in the future.  Our goal is to try to raise the quality of living for college students.
-    .row.text-center
-      .sign_buttons
-        = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-lg pomegranate clouds'
-        = link_to 'Sign In', new_user_session_path, class: 'btn btn-lg pomegranate clouds'
-
-%section
-  .container
-    .row
-      %h3.footer_content Copyright &copy; Rentelligent.ly
+  .footer
+    .container
+      %p.footer_content Copyright &copy; Rentelligent.ly
 
