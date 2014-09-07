@@ -38,12 +38,5 @@
                   %li= link_to 'Logout', destroy_user_session_path, method: :delete
 
     #content.container
-      - if flash
-        - flash.each do |name, message|
-          - if name.to_s == 'alert'
-            .alert.alert-danger= message
-          - elsif name.to_s == 'notice'
-            .alert.alert-success= message
-          - else
-            .alert.alert-warning= message
+      = render 'application/flash'
       = yield

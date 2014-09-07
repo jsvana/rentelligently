@@ -1,6 +1,7 @@
 .sign_in_page
   .well.well-lg
     %h1.main_header Rentelligent.ly
+    = render 'application/flash'
     %hr
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-group
