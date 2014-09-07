@@ -31,11 +31,14 @@
       .thumbnail.nephritis.clouds.quicksand
         .vcenter
           %p= "Paid #{number_to_currency(due.utility.per_occupant_cost, unit: '$')} for #{due.utility.provider} on #{due.updated_at.strftime('%e %B')}"
-  - if current_user.has_dues?
-    .row.dues_summary
-      .col-md-6
-        .summary_card
-          %h4.quicksand.summary_information= "You currently owe #{number_to_currency(current_user.current_amount_due, unit: '$')}."
+- if current_user.has_dues?
+  .row.dues_summary
+    .col-md-6
+      .summary_card
+        %h4.quicksand.summary_information= "You currently owe #{number_to_currency(current_user.current_amount_due, unit: '$')}."
+        %ul
+          - current_user.current_dues.each do |due|
+            %li= "#{due.utility.provider} - #{number_to_currency(due.amount, unit: '$')}"
 
 .row.center
   = link_to 'Add Utility', new_property_utility_path(@property), class: 'btn btn-primary btn-lg pomegranate clouds payment_button'
