@@ -1,4 +1,4 @@
-.sign_in_page
+.sign_in_page.sign_up
   .well.well-lg
     %h1.main_header Rentelligent.ly
     %hr
@@ -13,11 +13,15 @@
           .input-group-addon
             %i.fa.fa-lock.pomegranate_sign
           %input#address.form-control{type: "password", name: "session[password]", placeholder: "Password", required: true}
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-lock.pomegranate_sign
+          %input#address.form-control{type: "password", name: "session[password]", placeholder: "Password", required: true}
       .form-group{ style: 'text-align: center; margin-top: 15px;' }
       %input.btn.btn-primary.property-btn{ type: 'submit', value: "Sign Up" }
       %input.btn.btn-primary.property-btn.sign-in-button{ type: 'submit', value: "Sign In" }
       .form-group{ style: 'text-align: center; margin-top: 15px;' }
-      .row.center
         %a.btn.btn-lg.btn-primary.pomegranate.facebook_login
           %i.fa.fa-facebook-square
           %span &nbsp;Login with Facebook

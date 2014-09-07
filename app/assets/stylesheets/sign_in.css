@@ -168,3 +168,12 @@ p.landlord_phone_number {
 	width:400px;
 	height:100%;
 }
+
+.facebook_login {
+	border-color: #e74c3c;
+	background-color: #e74c3c;
+}
+
+.sign_up {
+	padding-top: 10% !important;
+}
