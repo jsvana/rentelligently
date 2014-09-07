@@ -2,7 +2,7 @@
   .well.well-lg
     %h1.main_header Rentelligent.ly
     %hr
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       .form-group
         .input-group
           .input-group-addon
