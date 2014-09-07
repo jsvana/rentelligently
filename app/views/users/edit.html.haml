@@ -1,5 +1,16 @@
-= simple_form_for @user do |f|
-  = f.input :first_name
-  = f.input :last_name
-  = f.file_field :profile
-  = f.submit
+.well.well-lg.user_account
+  %h1.main_header Edit User Account
+  %hr
+  = simple_form_for @user do |f|
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-user.pomegranate_sign
+        %input.form-control{type: "text", name: "user[first_name]", placeholder: "First Name", required: true}
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-user.pomegranate_sign
+        %input.form-control{type: "text", name: "user[last_name]", placeholder: "Last Name", required: true}
+    = f.file_field :profile
+    %input.btn.btn-primary.property-btn{ type: 'submit', value: "Sign Up" }
