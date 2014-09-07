@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :roommates
   has_many :dues
 
+  has_many :posts
+  has_many :comments
+
   has_attached_file :profile, default_url: 'profile.jpg'
   validates_attachment_content_type :profile, :content_type => /\Aimage\/.*\Z/
 

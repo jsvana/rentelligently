@@ -1,0 +1,24 @@
+%h1= @post.title
+%p= @post.body
+
+- if @post.comments.any?
+  - @post.comments.each do |comment|
+    .row
+      .col-md-12
+        %p= comment.content
+        %p= "By #{comment.user.name}"
+- else
+  %p No comments yet.
+
+.row
+  .col-md-12
+    = simple_form_for [@post, @comment] do |f|
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-edit
+          %textarea.form-control{ name: 'comment[content]', placeholder: 'New comment...' }
+      .form-group
+        %input.btn.btn-primary{ type: 'submit' }
+        = link_to 'Back', @forum, class: 'btn btn-default'
+

@@ -20,23 +20,12 @@
     .col-md-12
       %p No dues currently.
 
-  - current_user.current_dues.each do |due|
+  - current_user.past_dues.each do |due|
     .col-md-3.col-sm-4.col-xs-6
       .thumb-dummy
       .thumbnail.nephritis.clouds.quicksand
         .vcenter
-          %p= "Paid #{number_to_currency(due.utility.per_occupant_cost, unit: '$')} for #{due.utility.provider}"
-
--#.row
-  -#- if @property.utilities.any?
-    -#- @property.utilities.each do |utility|
-      -#.col-md-3
-        -#.well
-          -#%h3= utility.provider
-          -#%p= "#{number_to_currency(utility.per_occupant_cost, unit: '$')} due by #{utility.due_by.strftime('%e %B')} (#{number_to_currency(utility.cost, unit: '$')} total)"
-
-  -#- else
-    -#%p No utilities listed yet.
+          %p= "Paid #{number_to_currency(due.utility.per_occupant_cost, unit: '$')} for #{due.utility.provider} on #{due.updated_at.strftime('%e %B')}"
 
 .row.center
-  = link_to 'Add Utility', new_property_utility_path(@property), class: 'btn btn-primary'
+  = link_to 'Add Utility', new_property_utility_path(@property), class: 'btn btn-primary btn-lg pomegranate clouds'

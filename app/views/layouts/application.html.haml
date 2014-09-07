@@ -24,7 +24,7 @@
             %li
               = link_to 'Utilities', property_utilities_path(current_user.current_property)
           %li
-            %a{ href: '#' } Forums
+            = link_to 'Forums', forums_path
 
         - if current_user
           %ul.nav.navbar-nav.navbar-right

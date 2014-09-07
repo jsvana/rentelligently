@@ -15,4 +15,12 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
+
+  resources :forums, only: [:show, :index] do
+    resources :posts, only: [:show, :new, :create]
+  end
+
+  resources :posts, only: [] do
+    resources :comments, only: [:create]
+  end
 end
