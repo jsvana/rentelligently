@@ -26,15 +26,20 @@ class PropertiesController < ApplicationController
 		@property.user_id = current_user.id
 
 		if @property.save
-			rental_term = RentalTerm.new(rental_term_params)
-			rental_term.user_id = current_user.id
-			rental_term.property_id = @property.id
-			rental_term.save
-			redirect_to root_path, notice: 'Property added successfully.'
+			redirect_to @property, notice: 'Property added successfully.'
 		else
 			flash[:alert] = @property.errors.full_messages.join(', ')
 			respond_with(@property)
 		end
+	end
+
+	def edit
+		@property = Property.find(params[:id])
+
+		respond_with(@property)
+	end
+
+	def update
 	end
 
 private

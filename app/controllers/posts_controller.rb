@@ -32,6 +32,25 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @property = Property.find(params[:id])
+
+    respond_with(@property)
+  end
+
+  def update
+    @property = Property.find(params[:id])
+
+    @property.update_attributes(post_params)
+
+    if @property.save
+      redirect_to @property, notice: 'Property updated successfully.'
+    else
+      flash[:alert] = @property.errors.full_messages.join(', ')
+      respond_with @property
+    end
+  end
+
 private
 
   def post_params

@@ -1,0 +1,43 @@
+= simple_form_for @property do |f|
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-home
+      %input.form-control{type: "text", value: @property.name, name: "property[name]", placeholder: "Property Name", required: true}
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-building
+      %input#address.form-control{type: "text", value: @property.address, name: "property[address]", placeholder: "Address", required: true}
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-pencil-square
+      %textarea#description.form-control{name: "property[description]", placeholder: "Description"}= @property.description
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-male
+      %input#landlord_name.form-control{type: "text", value: @property.landlord_name, name: "property[landlord_name]", placeholder: "Landlord Name"}
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-envelope
+      %input#landlord_email.form-control{type: "text", value: @property.landlord_email, name: "property[landlord_email]", placeholder: "Landlord Email", required: true}
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-phone
+      %input#phone_number.form-control{type: "text", value: @property.landlord_phone, name: "property[landlord_phone]", placeholder: "Landlord Phone Number"}
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-dollar
+      %input.form-control{type: "text", value: @property.rent, name: "property[rent]", placeholder: "Rent"}
+
+  .form-group
+    = f.file_field :image
+
+  .form-group{ style: 'text-align: center; margin-top: 15px;' }
+    %input.btn.btn-primary.property-btn{ type: 'submit' }
+    = link_to 'Cancel', properties_path, class: 'btn btn-default'
