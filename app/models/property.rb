@@ -14,11 +14,15 @@ class Property < ActiveRecord::Base
   def current_occupants
     end_field = RentalTerm.arel_table[:end_date]
     property_field = RentalTerm.arel_table[:property_id]
-    RentalTerm.where(end_field.gteq(Date.current).and(property_field.eq(self.id))).map(&:user)
+    RentalTerm.where(end_field.gteq(Date.current).and(property_field.eq(self.id))).map(&:user).uniq
   end
 
-  def current_term
-    self.rental_terms.order(end_date: :desc).first
+  def is_current_occupant?(user)
+    self.current_occupants.include?(user)
+  end
+
+  def current_term_for(user)
+    self.rental_terms.where(user: user).order(end_date: :desc).first
   end
 
   def has_terms?

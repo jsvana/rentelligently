@@ -33,13 +33,16 @@
         - if property.comments.any?
           .comments_container
             %h3.comments Comments:
-            - property.comments.each do |comment|
-              %p.comments= comment
+            - property.rental_terms.each do |term|
+              %p= "#{term.user.name}:"
+              %blockquote
+                %p.comments= term.comments
         .property-buttons
-          = link_to edit_property_path(@property), class: 'btn btn-primary' do
+          = link_to edit_property_path(property), class: 'btn btn-primary' do
             %span.fa.fa-pencil &nbsp;Edit
-
-          = link_to 'Show All Properties', properties_path, class: 'btn btn-default'
+          - if property.is_current_occupant?(current_user)
+            = link_to 'Edit Current Rental Term', edit_property_rental_term_path(property, property.current_term_for(current_user)), class: 'btn btn-success'
+          = link_to 'Add Rental Term', new_property_rental_term_path(property), class: 'btn btn-default'
 
       .col-md-4.summary_details
         %h3.house_name.clouds= property.name

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :utilities do
       post :pay
     end
+    resources :rental_terms, only: [:new, :create, :edit, :update]
   end
 
   resources :users, only: [:show, :edit, :update]

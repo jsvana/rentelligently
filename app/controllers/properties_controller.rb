@@ -50,8 +50,8 @@ private
 																		 :landlord_email, :image, :rent)
 	end
 
-	def rental_term_params
-		params.require(:rental_term).permit(:end_date, :start_date, :comments,
-																			  :property_rating, :landlord_rating)
-	end
+	#def rental_term_params
+		#params.require(:rental_term).permit(:end_date, :start_date, :comments,
+																				#:property_rating, :landlord_rating)
+	#end
 end
