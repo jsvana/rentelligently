@@ -1,0 +1,5 @@
+%h1 Forums
+
+- @forums.each do |forum|
+  %h3= link_to forum.name, forum
+  %p= pluralize(forum.posts.count, 'post')

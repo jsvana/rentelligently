@@ -1,0 +1,11 @@
+%h1= @forum.name
+
+- if @forum.posts.any?
+  - @forum.posts.each do |post|
+    %h3= link_to post.title, forum_post_path(@forum, post)
+    %p= pluralize(post.comments.count, 'comment')
+- else
+  %p No posts yet.
+
+= link_to 'New Post', new_forum_post_path(@forum), class: 'btn btn-primary'
+= link_to 'Back', forums_path, class: 'btn btn-default'

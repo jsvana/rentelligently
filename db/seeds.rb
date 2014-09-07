@@ -1,8 +1,12 @@
 User.delete_all
 Property.delete_all
 RentalTerm.delete_all
-Roommate.delete_all
 Issue.delete_all
+Utility.delete_all
+Due.delete_all
+Forum.delete_all
+Post.delete_all
+Comment.delete_all
 
 jsvana = User.create!(
 	email: 'jsvana@mtu.edu',
@@ -36,7 +40,7 @@ hubbell = Property.create!(
 	rent: 350.0
 )
 
-first_rent = RentalTerm.create!(
+RentalTerm.create!(
 	user: jsvana,
 	property: hubbell,
 	start_date: Date.current - 1.year,
@@ -66,12 +70,6 @@ RentalTerm.create!(
 	landlord_rating: 3
 )
 
-Roommate.create(
-	user: jsvana,
-	roommate: rex,
-	rental_term: first_rent
-)
-
 Issue.create!(
 	property: hubbell,
 	description: 'Stove is broken.',
@@ -91,4 +89,74 @@ Issue.create!(
 	description: 'Skunk lives under the deck.',
 	fixed: false,
 	user: rex
+)
+
+dte = Utility.create(
+	property: hubbell,
+	provider: 'DTE',
+	due_by: Date.current + 3.weeks,
+	cost: 117
+)
+
+Due.create(
+	user: jsvana,
+	utility: dte,
+	amount: dte.cost / 2
+)
+
+Due.create(
+	user: rex,
+	utility: dte,
+	amount: dte.cost / 2
+)
+
+#############
+# Forum Stuff
+#############
+
+assistance = Forum.create(
+	name: 'Needing Assistance'
+)
+
+diy = Forum.create(
+	name: 'DIY Help'
+)
+
+bad = Post.create(
+	forum: assistance,
+	user: phil,
+	title: 'Roommates not working out. Help?',
+	body: 'Started out the year and my roommates were great. Recently, though, they started not helping out (cleaning and other chores) and are generally being negative. What can I do?',
+)
+
+sink = Post.create(
+	forum: diy,
+	user: jsvana,
+	title: 'Looking to fix the plumbing.',
+	body: "Anyone here have experience with plumbing? Our sink has something wrong with it and I'd like to fix it (landlord is not responding)."
+)
+
+Post.create(
+	forum: diy,
+	user: rex,
+	title: 'Just built a loft. Looking for feedback.',
+	body: "I just finished building a loft. Seems pretty stable, but looking for advice on making it more stable."
+)
+
+Comment.create(
+	post: bad,
+	user: rex,
+	content: 'Have you talked to them?'
+)
+
+Comment.create(
+	post: bad,
+	user: phil,
+	content: "I have, but they don't seem to care."
+)
+
+Comment.create(
+	post: sink,
+	user: phil,
+	content: "I would recommend having somebody trained fix it. I had an issue with my sink and nearly broke it when I tried to fix it."
 )

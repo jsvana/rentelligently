@@ -11,13 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906212506) do
+ActiveRecord::Schema.define(version: 20140906223256) do
+
+  create_table "comments", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "dues", force: true do |t|
     t.integer  "user_id"
     t.integer  "utility_id"
     t.decimal  "amount",     precision: 6, scale: 2
     t.boolean  "paid",                               default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "forums", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +43,15 @@ ActiveRecord::Schema.define(version: 20140906212506) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "posts", force: true do |t|
+    t.integer  "forum_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "body"
   end
 
   create_table "properties", force: true do |t|
