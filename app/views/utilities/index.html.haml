@@ -36,7 +36,7 @@
     .col-md-6
       .summary_card
         %h4.quicksand.summary_information= "You currently owe #{number_to_currency(current_user.current_amount_due, unit: '$')}."
-        %ul
+        %ul.clouds
           - current_user.current_dues.each do |due|
             %li= "#{due.utility.provider} - #{number_to_currency(due.amount, unit: '$')}"
 
