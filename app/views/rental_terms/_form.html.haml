@@ -1,23 +1,29 @@
-.form-group
-  #datepicker.input-daterange.input-group
-    %span.input-group-addon
-      %i.fa.fa-calendar
-    %input.input-sm.form-control{ type: "text", name: 'rental_term[start_date]', placeholder: 'Lease Start', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
-    %span.input-group-addon to
-    %input.input-sm.form-control{ type: "text", name: 'rental_term[end_date]', placeholder: 'Lease End', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
+= simple_form_for [@property, @rental_term] do |f|
+  .form-group
+    #datepicker.input-daterange.input-group
+      %span.input-group-addon
+        %i.fa.fa-calendar
+      - if @rental_term.start_date
+        %input.input-sm.form-control{ type: "text", value: @rental_term.start_date.strftime('%d/%m/%Y'), name: 'rental_term[start_date]', placeholder: 'Lease Start', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
+      - else
+        %input.input-sm.form-control{ type: "text", name: 'rental_term[start_date]', placeholder: 'Lease Start', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
+      %span.input-group-addon to
+      - if @rental_term.end_date
+        %input.input-sm.form-control{ type: "text", value: @rental_term.end_date.strftime('%d/%m/%Y'), name: 'rental_term[end_date]', placeholder: 'Lease End', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
+      - else
+        %input.input-sm.form-control{ type: "text", name: 'rental_term[end_date]', placeholder: 'Lease End', required: true, data: { provide: 'datepicker', date: { format: 'dd/mm/yyyy' } }}
 
-.form-group
-  .input-group
-    .input-group-addon
-      %i.fa.fa-edit
-    %textarea.form-control{name: 'rental_term[comments]', placeholder: 'Comments on rental'}
-.form-group
-  .input-group
-    .input-group-addon
-      %i.fa.fa-star
-    %input.form-control{type: "text", name:"rental_term[property_rating]", required: true, placeholder: "Property Rating (1-5)"}
-.form-group
-  .input-group
-    .input-group-addon
-      %i.fa.fa-heart
-    %input.form-control{type: "text", name:"rental_term[landlord_rating]", required: true, placeholder: "Landlord Rating (1-5)"}
+  .form-group
+    .input-group
+      .input-group-addon
+        %i.fa.fa-edit
+      %textarea.form-control{name: 'rental_term[comments]', placeholder: 'Comments on rental'}= @rental_term.comments
+  .form-group
+    %label Property Rating
+    = f.select(:property_rating, 1..5, {}, {value: @rental_term.property_rating, class: 'form-control' })
+  .form-group
+    %label Landlord Rating
+    = f.select(:landlord_rating, 1..5, {}, {value: @rental_term.landlord_rating, class: 'form-control' })
+  .form-group
+    %input.btn.btn-primary{type: 'submit', value: submit_text}
+    = link_to 'Cancel', @property, class: 'btn btn-default'
