@@ -47,6 +47,13 @@
 	margin-top: 100%;
 }
 
+.summary_card {
+	width: 100%;
+	background-color: #3498db;
+	border-radius: 5px;
+	margin-left: 54%;
+}
+
 .issues_container .thumbnail {
 	position: absolute;
 	top: 15px;
@@ -199,4 +206,20 @@ h4.about-heading{
 section > .container {
 	width: 100%;
 	text-align: center;
+}
+
+.utilities {
+	font-weight: bold;
+	color: #c0392b;
+	text-align: center;
+}
+
+.payment_button {
+	border-color: #c0392b;
+}
+
+.summary_information {
+	color: #ecf0f1;
+	padding-top: 5px;
+	padding-left: 5px;
 }

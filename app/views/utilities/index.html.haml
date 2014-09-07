@@ -1,7 +1,11 @@
-%h1 Utilities
+%h1.quicksand.utilities Utilities
 
 - if current_user.has_dues?
-  %h4= "You currently owe #{number_to_currency(current_user.current_amount_due, unit: '$')}."
+  .payment_button_pos
+    %span
+      %a.btn.btn-lg.btn-primary.pomegranate.payment_button
+        %i.fa.fa-money
+        %span= raw "&nbsp;Pay #{number_to_currency(current_user.current_amount_due, unit: '$')}"
 
 .row.dues_container
   - if current_user.has_dues?
@@ -10,12 +14,13 @@
         .thumb-dummy
         .thumbnail.carrot.clouds.quicksand
           .vcenter
-            %h3= due.utility.provider
+            %h3.quicksand= due.utility.provider
             %p= "#{number_to_currency(due.utility.per_occupant_cost, unit: '$')} due by #{due.utility.due_by.strftime('%e %B')} (#{number_to_currency(due.utility.cost, unit: '$')} total)"
           %span.pay
             = link_to property_utility_pay_path(@property, due.utility), class: 'clouds', method: :post do
               %span.fa.fa-check
               %span &nbsp;Mark as Paid
+
   - else
     .col-md-12
       %p No dues currently.
@@ -26,6 +31,11 @@
       .thumbnail.nephritis.clouds.quicksand
         .vcenter
           %p= "Paid #{number_to_currency(due.utility.per_occupant_cost, unit: '$')} for #{due.utility.provider} on #{due.updated_at.strftime('%e %B')}"
+  - if current_user.has_dues?
+    .row.dues_summary
+      .col-md-6
+        .summary_card
+          %h4.quicksand.summary_information= "You currently owe #{number_to_currency(current_user.current_amount_due, unit: '$')}."
 
 .row.center
-  = link_to 'Add Utility', new_property_utility_path(@property), class: 'btn btn-primary btn-lg pomegranate clouds'
+  = link_to 'Add Utility', new_property_utility_path(@property), class: 'btn btn-primary btn-lg pomegranate clouds payment_button'

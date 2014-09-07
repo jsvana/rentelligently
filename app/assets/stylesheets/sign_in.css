@@ -177,3 +177,10 @@ p.landlord_phone_number {
 .sign_up {
 	padding-top: 10% !important;
 }
+
+.payment_button_pos {
+	display: block;
+	margin-right: 0px;
+	flight: right;
+
+}
