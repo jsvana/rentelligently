@@ -43,4 +43,12 @@ class User < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
+
+  def display_name
+    if first_name
+      first_name
+    else
+      email
+    end
+  end
 end
