@@ -5,6 +5,11 @@
     .form-group
       .input-group
         .input-group-addon
+          %i.fa.fa-envelope.pomegranate_sign
+        %input.form-control{type: "text", name: "user[email]", placeholder: "First Name", required: true}
+    .form-group
+      .input-group
+        .input-group-addon
           %i.fa.fa-user.pomegranate_sign
         %input.form-control{type: "text", name: "user[first_name]", placeholder: "First Name", required: true}
     .form-group
@@ -13,4 +18,5 @@
           %i.fa.fa-user.pomegranate_sign
         %input.form-control{type: "text", name: "user[last_name]", placeholder: "Last Name", required: true}
     = f.file_field :profile
-    %input.btn.btn-primary.property-btn{ type: 'submit', value: "Sign Up" }
+    %input.btn.btn-primary.property-btn{ type: 'submit', value: "Update Settings" }
+    = link_to "Link with Venmo", user_omniauth_authorize_path(:venmo), class: 'btn btn-primary property-btn'

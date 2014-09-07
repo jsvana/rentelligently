@@ -51,7 +51,7 @@ RentalTerm.create!(
 )
 
 RentalTerm.create!(
-	user: rex,
+	user: phil,
 	property: hubbell,
 	start_date: Date.current - 1.year,
 	end_date: Date.current,
@@ -61,7 +61,7 @@ RentalTerm.create!(
 )
 
 RentalTerm.create!(
-	user: phil,
+	user: rex,
 	property: hubbell,
 	start_date: Date.current - 2.year,
 	end_date: Date.current - 1.year,

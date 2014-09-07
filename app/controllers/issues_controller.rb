@@ -11,12 +11,13 @@ class IssuesController < ApplicationController
   end
 
   def create
+    @property = Property.find(params[:property_id])
     @issue = Issue.create(issue_params)
-    @issue.property_id = params[:property_id]
+    @issue.property_id = @property.id
     @issue.user_id = current_user.id
 
     if @issue.save
-      redirect_to root_path, notice: 'Issue added successfully.'
+      redirect_to @property, notice: 'Issue added successfully.'
     else
       flash[:alert] = @issue.errors.full_messages.join(', ')
       respond_with(@issue)

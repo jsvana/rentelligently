@@ -19,6 +19,4 @@
       %input.btn.btn-primary.property-btn.sign-in-button{ type: 'submit', value: "Sign In" }
       .form-group{ style: 'text-align: center; margin-top: 15px;' }
       .row.center
-        %a.btn.btn-lg.btn-primary.pomegranate.facebook_login
-          %i.fa.fa-facebook-square
-          %span &nbsp;Login with Facebook
+        = link_to "Sign in with Venmo", user_omniauth_authorize_path(:venmo), class: 'btn btn-lg btn-primary pomegranate'
