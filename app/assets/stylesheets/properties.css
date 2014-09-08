@@ -254,6 +254,16 @@ section > .container {
 	background-color: #e74c3c;
 }
 
-h3.footer_content {
-	color: white;
+p.footer_content {
+	display: inline-block;
+	color: #ecf0f1;
+	text-align: left;
+	padding-top: 20px;
+}
+
+p.footer_content_right {
+	color: #ecf0f1;
+	display: inline-block;
+	text-align: right;
+	padding-top: -10px;
 }
